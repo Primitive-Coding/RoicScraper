@@ -550,6 +550,8 @@ class RoicScraper:
                 data = self._read_data(xpath)
                 if "," in data:
                     data = data.replace(",", "")
+                if "%" in row:
+                    data = float(data) / 100
                 df.loc[row, col] = data
                 col_index += 1
             col_index = _start_col_index
@@ -616,9 +618,4 @@ if __name__ == "__main__":
 
     roic = RoicScraper("AAPL")
     df = roic.get_cash_flow()
-    cols = df.columns.to_list()
-
-    cols = cols[-5:]
-
-    print(f"{df[cols]}")
-    # roic.calc_growth(df.loc["Sales & Services Revenue"])
+    print(f"DF: {df}")
