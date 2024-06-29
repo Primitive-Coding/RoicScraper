@@ -31,7 +31,8 @@ class RoicScraper:
     """-----------------------------------"""
 
     def _get_data_export_path(self):
-        with open("config.json", "r") as file:
+        path = f"{os.getcwd()}\\RoicScraper\\config.json"
+        with open(path, "r") as file:
             data = json.load(file)
         return data["data_export_path"]
 
@@ -39,7 +40,8 @@ class RoicScraper:
     """----------------------------------- Browser Operations -----------------------------------"""
 
     def _get_chrome_driver_path(self):
-        with open("config.json", "r") as file:
+        path = f"{os.getcwd()}\\RoicScraper\\config.json"
+        with open(path, "r") as file:
             data = json.load(file)
         return data["chrome_driver_path"]
 
