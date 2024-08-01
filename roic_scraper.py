@@ -181,15 +181,20 @@ class RoicScraper:
         self._clean_close()
         return df
 
-    def get_income_statement(self):
+    def get_income_statement(self, update: bool = False):
         path = f"{self.ticker_folder}\\income_statement.csv"
-        try:
-            df = pd.read_csv(path).set_index("index")
+
+        if update:
+            df = self.update_income_statement()
             return df
-        except FileNotFoundError:
-            df = self._scrape_income_statement()
-            df.to_csv(path)
-            return df
+        else:
+            try:
+                df = pd.read_csv(path).set_index("index")
+                return df
+            except FileNotFoundError:
+                df = self._scrape_income_statement()
+                df.to_csv(path)
+                return df
 
     def update_income_statement(self):
         path = f"{self.ticker_folder}\\income_statement.csv"
@@ -213,15 +218,19 @@ class RoicScraper:
         self._clean_close()
         return df
 
-    def get_balance_sheet(self):
+    def get_balance_sheet(self, update: bool = False):
         path = f"{self.ticker_folder}\\balance_sheet.csv"
-        try:
-            df = pd.read_csv(path).set_index("index")
+        if update:
+            df = self.update_balance_sheet()
             return df
-        except FileNotFoundError:
-            df = self._scrape_balance_sheet()
-            df.to_csv(path)
-            return df
+        else:
+            try:
+                df = pd.read_csv(path).set_index("index")
+                return df
+            except FileNotFoundError:
+                df = self._scrape_balance_sheet()
+                df.to_csv(path)
+                return df
 
     def update_balance_sheet(self):
         path = f"{self.ticker_folder}\\balance_sheet.csv"
@@ -245,15 +254,19 @@ class RoicScraper:
         self._clean_close()
         return df
 
-    def get_cash_flow(self):
+    def get_cash_flow(self, update: bool = False):
         path = f"{self.ticker_folder}\\cash_flow.csv"
-        try:
-            df = pd.read_csv(path).set_index("index")
+        if update:
+            df = self.update_cash_flow()
             return df
-        except FileNotFoundError:
-            df = self._scrape_cash_flow()
-            df.to_csv(path)
-            return df
+        else:
+            try:
+                df = pd.read_csv(path).set_index("index")
+                return df
+            except FileNotFoundError:
+                df = self._scrape_cash_flow()
+                df.to_csv(path)
+                return df
 
     def update_cash_flow(self):
         path = f"{self.ticker_folder}\\cash_flow.csv"
@@ -277,15 +290,19 @@ class RoicScraper:
         self._clean_close()
         return df
 
-    def get_profitability(self):
+    def get_profitability(self, update: bool = False):
         path = f"{self.ticker_folder}\\profitability.csv"
-        try:
-            df = pd.read_csv(path).set_index("index")
+        if update:
+            df = self.update_profitability()
             return df
-        except FileNotFoundError:
-            df = self._scrape_profitability()
-            df.to_csv(path)
-            return df
+        else:
+            try:
+                df = pd.read_csv(path).set_index("index")
+                return df
+            except FileNotFoundError:
+                df = self._scrape_profitability()
+                df.to_csv(path)
+                return df
 
     def update_profitability(self):
         path = f"{self.ticker_folder}\\profitability.csv"
@@ -309,15 +326,19 @@ class RoicScraper:
         self._clean_close()
         return df
 
-    def get_credit(self):
+    def get_credit(self, update: bool = False):
         path = f"{self.ticker_folder}\\credit.csv"
-        try:
-            df = pd.read_csv(path).set_index("index")
+        if update:
+            df = self.update_credit()
             return df
-        except FileNotFoundError:
-            df = self._scrape_credit()
-            df.to_csv(path)
-            return df
+        else:
+            try:
+                df = pd.read_csv(path).set_index("index")
+                return df
+            except FileNotFoundError:
+                df = self._scrape_credit()
+                df.to_csv(path)
+                return df
 
     def update_credit(self):
         path = f"{self.ticker_folder}\\credit.csv"
@@ -341,15 +362,19 @@ class RoicScraper:
         self._clean_close()
         return df
 
-    def get_liquidity(self):
+    def get_liquidity(self, update: bool = False):
         path = f"{self.ticker_folder}\\liquidity.csv"
-        try:
-            df = pd.read_csv(path).set_index("index")
+        if update:
+            df = self.update_liquidity()
             return df
-        except FileNotFoundError:
-            df = self._scrape_liquidity()
-            df.to_csv(path)
-            return df
+        else:
+            try:
+                df = pd.read_csv(path).set_index("index")
+                return df
+            except FileNotFoundError:
+                df = self._scrape_liquidity()
+                df.to_csv(path)
+                return df
 
     def update_liquidity(self):
         path = f"{self.ticker_folder}\\liquidity.csv"
@@ -373,15 +398,20 @@ class RoicScraper:
         self._clean_close()
         return df
 
-    def get_working_capital(self):
+    def get_working_capital(self, update: bool = False):
         path = f"{self.ticker_folder}\\working_capital.csv"
-        try:
-            df = pd.read_csv(path).set_index("index")
+
+        if update:
+            df = self.update_working_capital()
             return df
-        except FileNotFoundError:
-            df = self._scrape_working_capital()
-            df.to_csv(path)
-            return df
+        else:
+            try:
+                df = pd.read_csv(path).set_index("index")
+                return df
+            except FileNotFoundError:
+                df = self._scrape_working_capital()
+                df.to_csv(path)
+                return df
 
     def update_working_capital(self):
         path = f"{self.ticker_folder}\\working_capital.csv"
@@ -405,15 +435,19 @@ class RoicScraper:
         self._clean_close()
         return df
 
-    def get_enterprise_value(self):
+    def get_enterprise_value(self, update: bool = False):
         path = f"{self.ticker_folder}\\enterprise_value.csv"
-        try:
-            df = pd.read_csv(path).set_index("index")
+        if update:
+            df = self.update_enterprise_value()
             return df
-        except FileNotFoundError:
-            df = self._scrape_enterprise_value()
-            df.to_csv(path)
-            return df
+        else:
+            try:
+                df = pd.read_csv(path).set_index("index")
+                return df
+            except FileNotFoundError:
+                df = self._scrape_enterprise_value()
+                df.to_csv(path)
+                return df
 
     def update_enterprise_value(self):
         path = f"{self.ticker_folder}\\enterprise_value.csv"
@@ -437,15 +471,19 @@ class RoicScraper:
         self._clean_close()
         return df
 
-    def get_multiples(self):
+    def get_multiples(self, update: bool = False):
         path = f"{self.ticker_folder}\\multiples.csv"
-        try:
-            df = pd.read_csv(path).set_index("index")
+        if update:
+            df = self.update_multiples()
             return df
-        except FileNotFoundError:
-            df = self._scrape_multiples()
-            df.to_csv(path)
-            return df
+        else:
+            try:
+                df = pd.read_csv(path).set_index("index")
+                return df
+            except FileNotFoundError:
+                df = self._scrape_multiples()
+                df.to_csv(path)
+                return df
 
     def update_multiples(self):
         path = f"{self.ticker_folder}\\multiples.csv"
@@ -469,15 +507,20 @@ class RoicScraper:
         self._clean_close()
         return df
 
-    def get_per_share_data(self):
+    def get_per_share_data(self, update: bool = False):
         path = f"{self.ticker_folder}\\per_share_data.csv"
-        try:
-            df = pd.read_csv(path).set_index("index")
+        if update:
+            df = self.update_per_share_data()
             return df
-        except FileNotFoundError:
-            df = self._scrape_per_share_data()
-            df.to_csv(path)
-            return df
+        else:
+
+            try:
+                df = pd.read_csv(path).set_index("index")
+                return df
+            except FileNotFoundError:
+                df = self._scrape_per_share_data()
+                df.to_csv(path)
+                return df
 
     def update_per_share_data(self):
         path = f"{self.ticker_folder}\\per_share_data.csv"
@@ -507,22 +550,13 @@ class RoicScraper:
     """----------------------------------- Ratios Page -----------------------------------"""
 
     def get_all_ratios_data(self, update: bool = False) -> dict:
-        if update:
-            profitability = self.update_profitability()
-            credit = self.update_credit()
-            liquidity = self.update_liquidity()
-            working_capital = self.update_working_capital()
-            enterprise_value = self.update_enterprise_value()
-            multiples = self.update_multiples()
-            per_share_data = self.update_per_share_data()
-        else:
-            profitability = self.get_profitability()
-            credit = self.get_credit()
-            liquidity = self.get_liquidity()
-            working_capital = self.get_working_capital()
-            enterprise_value = self.get_enterprise_value()
-            multiples = self.get_multiples()
-            per_share_data = self.get_per_share_data()
+        profitability = self.get_profitability(update)
+        credit = self.get_credit(update)
+        liquidity = self.get_liquidity(update)
+        working_capital = self.get_working_capital(update)
+        enterprise_value = self.get_enterprise_value(update)
+        multiples = self.get_multiples(update)
+        per_share_data = self.get_per_share_data(update)
 
         return {
             "profitability": profitability,
